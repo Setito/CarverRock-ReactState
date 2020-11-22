@@ -14,7 +14,11 @@ export default function useFetchAll(urls) {
     }
     prevUrls.current = urls;
 
-    const promises = urls.map((url) =>
+    const deduplicatedURLs = urls.filter((url, index) => {
+      return urls.indexOf(url) === index;
+    });
+
+    const promises = deduplicatedURLs.map((url) =>
       fetch(process.env.REACT_APP_API_BASE_URL + url).then((response) => {
         if (response.ok) return response.json();
         throw response;
