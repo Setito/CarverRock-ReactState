@@ -32,7 +32,7 @@ export default function Header() {
           </li>
           <li>
             <NavLink activeStyle={activeStyle} to="/cart">
-              Cart ({numItemsInCart})
+              Cart ([{numItemsInCart}])
             </NavLink>
           </li>
         </ul>
